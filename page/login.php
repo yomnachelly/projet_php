@@ -62,12 +62,22 @@
     </header>
 
     <!-- Section principale -->
+  
     <main class="main-content">
         <div class="container my-5">
             <h1 class="text-center mb-4">Connexion à votre Compte</h1>
             <div class="form-container">
+                <!-- Afficher un message d'erreur s'il existe -->
+                <?php
+session_start();
+if (isset($_SESSION['error'])) {
+    echo "<script>alert('" . $_SESSION['error'] . "');</script>";
+    unset($_SESSION['error']); // Nettoyer le message d'erreur après l'affichage
+}
+?>
+
                 <!-- Formulaire de connexion -->
-                <form action="login_action.php" method="POST">
+                <form action="verif.php" method="POST">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nom</label>
                         <input type="text" class="form-control" id="name" name="name" required>
@@ -83,7 +93,6 @@
                     <button type="submit" class="btn btn-danger w-100">Se connecter</button>
                 </form>
 
-                <!-- Lien pour s'inscrire si on n'a pas de compte -->
                 <div class="text-center mt-3">
                     <p>Vous n'avez pas de compte ? <a href="creecompte.php">Créez-en un ici</a>.</p>
                 </div>
