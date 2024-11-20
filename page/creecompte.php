@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,41 +7,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style1.css">  <!-- Fichier CSS personnalisé -->
     <style>
-        /* Personnalisation de la barre de navigation */
         header.navbar {
-            background-color: #343a40; /* Couleur de fond personnalisée */
+            background-color: #343a40;
         }
-
-        .navbar-brand {
-            color: #fff; /* Texte du logo en blanc */
+        .navbar-brand, .navbar-light .navbar-nav .nav-link {
+            color: #fff;
         }
-
-        .navbar-light .navbar-nav .nav-link {
-            color: #fff; /* Liens de la navbar en blanc */
-        }
-
-        /* Personnalisation du formulaire */
         .form-container {
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
             padding: 20px;
             background-color: #f8f9fa;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
         .form-container .form-control {
             margin-bottom: 15px;
-            
         }
-        /* Style de survol (hover) pour le lien 'home' */
-.btn-transparent {
-    background-color: #CA2110;
-    color: white; 
-    border-radius: 5px; /* Ajouter un arrondi aux bords du bouton */
-    transition: background-color 0.3s, color 0.3s; /* Ajouter une transition fluide */
-}
-
+        .btn-transparent {
+            background-color: #CA2110;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
     </style>
 </head>
 <body>
@@ -52,12 +38,8 @@
         <div class="container">
             <a class="navbar-brand" href="#">HotelConnect</a>
             <div class="ml-auto">
-                <!-- Formulaire pour le bouton Log In -->
                 <form action="home.php" method="get" class="d-flex">
-                <form action="home.php" method="get" class="d-flex">
-    <button type="submit" class="btn btn-transparent">home</button>
-</form>
-
+                    <button type="submit" class="btn btn-transparent">home</button>
                 </form>
             </div>
         </div>
@@ -68,8 +50,12 @@
         <div class="container my-5">
             <h1 class="text-center mb-4">Créer un Compte</h1>
             <div class="form-container">
-                <!-- Formulaire d'inscription -->
-                <form action="creecomte.php" method="POST">
+                <!-- Formulaire de création de compte -->
+                <form action="ajouter_compte.php" method="POST">
+                    <div class="mb-3">
+                        <label for="cin" class="form-label">CIN</label>
+                        <input type="text" class="form-control" id="cin" name="cin" required>
+                    </div>
                     <div class="mb-3">
                         <label for="nom" class="form-label">Nom</label>
                         <input type="text" class="form-control" id="nom" name="nom" required>
@@ -83,26 +69,25 @@
                         <input type="number" class="form-control" id="age" name="age" required>
                     </div>
                     <div class="mb-3">
-                        <label for="etat_soc" class="form-label">État Civil</label>
+                        <label for="etat_soc" class="form-label">État Social</label>
                         <input type="text" class="form-control" id="etat_soc" name="etat_soc" required>
                     </div>
-                    
-                   
                     <div class="mb-3">
-                        <label for="email" class="form-label">E-mail</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <label for="email_client" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="email_client" name="email_client" required>
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label">Mot de passe</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
+                        <label for="pwd_client" class="form-label">Mot de Passe</label>
+                        <input type="password" class="form-control" id="pwd_client" name="pwd_client" required>
                     </div>
                     <div class="mb-3">
-                        <label for="tel" class="form-label">Numéro de téléphone</label>
-                        <input type="tel" class="form-control" id="tel" name="tel" required>
+                        <label for="tel_client" class="form-label">Téléphone</label>
+                        <input type="text" class="form-control" id="tel_client" name="tel_client" required>
                     </div>
-                    <button   type="submit" class="btn btn-danger w-100">Créer un compte</button>
+                    <button type="submit" class="btn btn-danger w-100">Créer un Compte</button>
                 </form>
-                <!-- Lien pour se connecter si l'utilisateur a déjà un compte -->
+
+                <!-- Lien pour revenir à la connexion -->
                 <div class="text-center mt-3">
                     <p>Vous avez déjà un compte ? <a href="login.php">Connectez-vous ici</a>.</p>
                 </div>
