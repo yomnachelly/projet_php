@@ -24,11 +24,15 @@
         .form-container .form-control {
             margin-bottom: 15px;
         }
-        .btn-transparent {
-            background-color: #CA2110;
-            color: white;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
+        .navbar .btn-transparent {
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+        .navbar .btn-transparent:hover {
+            background-color: #fff;
+            color: #343a40;
         }
     </style>
 </head>
@@ -36,7 +40,7 @@
     <!-- Barre de navigation -->
     <header class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="#">HotelConnect</a>
+            <a class="navbar-brand" href="home.php">HotelConnect</a>
             <div class="ml-auto">
                 <form action="home.php" method="get" class="d-flex">
                     <button type="submit" class="btn btn-transparent">home</button>

@@ -38,12 +38,16 @@
             
         }
         /* Style de survol (hover) pour le lien 'home' */
-.btn-transparent {
-    background-color: #CA2110;
-    color: white; 
-    border-radius: 5px; /* Ajouter un arrondi aux bords du bouton */
-    transition: background-color 0.3s, color 0.3s; /* Ajouter une transition fluide */
-}
+        .navbar .btn-transparent {
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+        .navbar .btn-transparent:hover {
+            background-color: #fff;
+            color: #343a40;
+        }
 
     </style>
 </head>
@@ -51,7 +55,7 @@
     <!-- Barre de navigation -->
     <header class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="#">HotelConnect</a>
+            <a class="navbar-brand" href="home.php">HotelConnect</a>
             <div class="ml-auto">
                 <!-- Formulaire pour le bouton Log In -->
                 <form action="home.php" method="get" class="d-flex">
