@@ -1,13 +1,12 @@
 <?php
 // Connexion à la base de données
-$host = 'localhost'; // Nom d'hôte
-$dbname = 'hotelconnect'; // Nom de la base de données
-$username = 'root'; // Nom d'utilisateur de la base de données
-$password = ''; // Mot de passe de la base de données
+$host = 'localhost';
+$dbname = 'hotelconnect';
+$username = 'root';
+$password = '';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-    // Configurer PDO pour afficher les erreurs
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Erreur de connexion à la base de données : " . $e->getMessage());
@@ -24,6 +23,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email_client = $_POST['email_client'];
     $pwd_client = password_hash($_POST['pwd_client'], PASSWORD_BCRYPT); // Hachage du mot de passe
     $tel_client = $_POST['tel_client'];
+
+    // Vérification si la CIN ou l'email existe déjà
+    $checkQuery = "SELECT COUNT(*) FROM client WHERE cin = :cin OR email_client = :email_client";
+    $stmt = $pdo->prepare($checkQuery);
+    $stmt->execute([
+        ':cin' => $cin,
+        ':email_client' => $email_client
+    ]);
+    $exists = $stmt->fetchColumn();
+
+    if ($exists > 0) {
+        // Affichage d'une alerte si un compte existe déjà
+        echo "<script>alert('Un compte avec cet email ou cette CIN existe déjà.'); window.history.back();</script>";
+        exit;
+    }
 
     // Initialisation des champs non inclus dans le formulaire
     $prix = 0;
@@ -50,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ]);
 
         // Redirection ou message de succès
-        header("Location: success.php"); // Remplacez "success.php" par une page de confirmation
+        header("Location: compte.php"); // Remplacez "compte.php" par une page de confirmation
         exit;
     } catch (PDOException $e) {
         die("Erreur lors de l'ajout du compte : " . $e->getMessage());
