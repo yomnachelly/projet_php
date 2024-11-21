@@ -1,5 +1,4 @@
 <?php
-// Démarrage de la session pour stocker des messages d'erreur ou des informations de session
 session_start();
 
 // Connexion à la base de données
@@ -17,7 +16,6 @@ try {
 
 // Vérification si les données ont été envoyées via le formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Récupération des données du formulaire
     $email = $_POST['email'];
     $password = $_POST['password'];
 
@@ -28,26 +26,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user) {
-        // Vérifier si le mot de passe correspond à celui enregistré
+        // Vérifier le mot de passe
         if (password_verify($password, $user['pwd_client'])) {
-            // Authentification réussie, enregistrer l'ID de l'utilisateur dans la session
+            // Enregistrer des informations dans la session
             $_SESSION['user_id'] = $user['cin'];
             $_SESSION['user_name'] = $user['nom'] . ' ' . $user['prenom'];
 
-            // Rediriger vers une page sécurisée (par exemple, le tableau de bord)
-            header("Location: compte.php");
+            // Rediriger vers la page compte.php avec le CIN
+            header("Location: compte.php?cin=" . urlencode($user['cin']));
             exit;
         } else {
-            // Mot de passe incorrect
-            $_SESSION['error'] = "Mot de passe incorrect. Vérifiez vos données.";
-            
+            $_SESSION['error'] = "Mot de passe incorrect.";
             header("Location: login.php");
             exit;
         }
     } else {
-        // L'utilisateur n'existe pas
-        $_SESSION['error'] = "Aucun compte trouvé avec cet email. Vérifiez vos données.";
-         
+        $_SESSION['error'] = "Aucun compte trouvé avec cet email.";
         header("Location: login.php");
         exit;
     }

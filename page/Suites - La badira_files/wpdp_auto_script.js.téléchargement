@@ -1,0 +1,193 @@
+	
+	
+
+	jQuery(document).ready(function($){
+
+
+		
+		if($('.wpcf7-form-control.wpcf7-repeater-add').length>0){
+			$('.wpcf7-form-control.wpcf7-repeater-add').on('click', function(){
+				wpdp_refresh_17164(jQuery, true);
+			});
+		}
+		
+	
+});
+var wpdp_refresh_first_17164 = 'yes';
+var wpdp_intv_17164;
+var wpdp_counter_17164 = 0;
+var wpdp_month_array_17164 = [];
+var wpdp_dateFormat = "dd/mm/yy";
+var wpdp_defaultDate = "";
+function wpdp_refresh_17164($, force){
+			var wpml_code = wpdp_obj.wpml_current_language;
+			
+			wpml_code = (wpml_code?wpml_code:"en-GB");
+			switch(wpml_code){
+				case "en":
+					wpml_code = "en-US";
+				break;
+			}
+	
+	
+			
+				if(typeof $.datepicker!='undefined' && typeof $.datepicker.regional[wpml_code]!='undefined'){
+								
+				wpdp_month_array_17164 = $.datepicker.regional[wpml_code].monthNamesShort;
+				
+									
+				}
+				
+				
+		
+				
+
+
+				if($("#datepic").length>0){
+					
+				$("#datepic").attr("autocomplete", "off");
+					
+				//document.title = wpdp_refresh_first=='yes';
+				//force = true;
+								if(wpdp_refresh_first_17164 == 'yes' || force){
+					
+					
+					
+										
+					if(typeof $.datepicker!='undefined')
+					$("#datepic").datepicker( "destroy" );
+					
+					
+					$("#datepic").removeClass("hasDatepicker");
+					wpdp_refresh_first_17164 = 'done';
+					
+				}
+								$('body').on('mouseover, mousemove', function(){//
+				
+			
+				
+				if ($("#datepic").length>0) {
+					$.each($("#datepic"), function(wp_si, wp_sv){
+						if($(this).val()!=''){
+							$(this).attr('data-default-val', $(this).val());
+						}
+					});
+				}		
+				
+				
+								if(wpdp_counter_17164 > 2)
+				clearInterval(wpdp_intv_17164);
+								
+				
+					
+				if($("#datepic.hasDatepicker").length!=$("#datepic").length){
+
+				
+					
+				$("#datepic").datepicker($.extend(  
+					{},  // empty object  
+					$.datepicker.regional[ wpml_code ],       // Dynamically  
+					{ beforeShowDay: $.datepicker.noWeekends,
+  
+ 					dateFormat: wpdp_dateFormat
+					}
+				)).on( "change", function() {
+						
+				}); 
+				
+				
+				
+				
+				
+				$("#datepic").datepicker( "option", "dateFormat", "dd/mm/yy" );
+
+
+setTimeout(function(){ 
+
+	 $.each($("#datepic"), function(){
+
+        
+            $(this).prop('autocomplete', 'off');
+
+         		 		
+		var expected_default = $(this).data('default');		
+
+		
+		var expected_stamp = $(this).data('default_stamp');
+		var expected_stamp_date = new Date(expected_stamp*1000);
+		var expected_stamp_str = $.datepicker.formatDate('dd/mm/yy', expected_stamp_date);		 
+	 
+		if(expected_default != undefined && expected_default!=''){ $(this).datepicker().datepicker('setDate', expected_default); }
+		if(expected_stamp != undefined && expected_stamp!=''){ $(this).datepicker().datepicker('setDate', expected_stamp_str); }		
+		
+	});
+	
+}, 100);
+	
+				$("#datepic").datepicker( "option", "monthNamesShort", wpdp_month_array_17164 );
+
+
+
+
+
+
+
+					$.each($("#datepic"), function(){
+						var this_selector = $(this);
+						var parent_form = this_selector.closest('form');
+						
+						parent_form.on('reset', function(){
+							if(this_selector.data('default-val')!= ""){
+								setTimeout(function(){
+									if(this_selector.val() == ''){
+										this_selector.val(this_selector.data('default-val'));
+									}
+								});
+							}
+						});
+						if($(this).data('default-val')!= ""){
+							$(this).val($(this).data('default-val'));
+						}
+						
+					});
+						
+				
+				}
+				
+				
+				
+				});
+				}
+		
+
+
+		
+		$('.ui-datepicker').addClass('notranslate');
+}
+	wpdp_intv_17164 = setInterval(function(){
+		wpdp_counter_17164++;
+		wpdp_refresh_17164(jQuery, false);
+		
+	}, 500);
+
+	                jQuery(document).ready(function($){
+
+                        $("#datepic").on('click', function(){
+
+                            $('.ui-datepicker-div-wrapper').prop('class', 'ui-datepicker-div-wrapper wp_datepicker_option-1 ');
+
+                        });
+
+                        setTimeout(function () {
+                                $("#datepic").click();
+                                //$("//").focusout();
+                        }, 1000);
+
+
+
+                });
+
+            
+    //wpdp_refresh_//(jQuery, false);
+	
+	    

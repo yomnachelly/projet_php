@@ -69,7 +69,7 @@
   
     <main class="main-content">
         <div class="container my-5">
-            <h1 class="text-center mb-4">Connexion à votre Compte</h1>
+            <h2 class="text-center mb-4">Connexion à votre Compte</h2>
             <div class="form-container">
                 <!-- Afficher un message d'erreur s'il existe -->
                 <?php

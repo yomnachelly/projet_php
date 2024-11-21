@@ -219,11 +219,33 @@
 
 
     </main>
+    <div id="carouselExampleDark" class="carousel carousel-dark slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="decouverte.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>La Badira Hotel Information:</h5>
+        <p>
+Address:
+<br>
+-BP437 / HAMMAMET<br>
+-8050 / TUNISIE.<br>Telephone: +(216)70018180<br>gmail:contact@labadira.com<br>Travellife: Gold Certified for Accommodation Sustainability</p>
+      </div>
+    </div>
+  
+  </div>
+  
+</div>
     
     <!-- Barre en bas -->
-    <footer class="navbar navbar-light bg-dark text-white text-center py-3">
-        <p>&copy; 2024 La Badira Hammamet. Tous droits réservés.</p>
-    </footer>
+    <footer class="text-center navbar navbar-light bg-dark text-white py-2">
+    <p>&copy; 2024 La Badira Hammamet. Tous droits réservés.</p>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
