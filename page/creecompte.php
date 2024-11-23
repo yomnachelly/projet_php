@@ -47,7 +47,7 @@
     </style>
 </head>
 <body>
-    <!-- Barre de navigation -->
+   
     <header class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="home.php">HotelConnect</a>
