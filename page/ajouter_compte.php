@@ -41,11 +41,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Initialisation des champs non inclus dans le formulaire
     $prix = 0;
-    $id_event = 1;
+   
 
     // Insertion dans la table `client`
-    $sql = "INSERT INTO client (cin, nom, prenom, age, etat_soc, prix, id_event, email_client, pwd_client, tel_client) 
-            VALUES (:cin, :nom, :prenom, :age, :etat_soc, :prix, :id_event, :email_client, :pwd_client, :tel_client)";
+    $sql = "INSERT INTO client (cin, nom, prenom, age, etat_soc, prix,  email_client, pwd_client, tel_client) 
+            VALUES (:cin, :nom, :prenom, :age, :etat_soc, :prix,  :email_client, :pwd_client, :tel_client)";
     $stmt = $pdo->prepare($sql);
 
     try {
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':age' => $age,
             ':etat_soc' => $etat_soc,
             ':prix' => $prix,
-            ':id_event' => $id_event,
+            
             ':email_client' => $email_client,
             ':pwd_client' => $pwd_client,
             ':tel_client' => $tel_client,
