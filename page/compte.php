@@ -6,6 +6,8 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style1.css">  <!-- Fichier CSS personnalisé -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </head>
 <style>
         .navbar .btn-transparent {
@@ -94,10 +96,10 @@ function addImage() {
         <div class="col-md-3 d-flex align-items-center justify-content-center">
         <form action="upload_image.php" method="POST" enctype="multipart/form-data">
         <!-- Champ de fichier caché -->
-        <input type="file" id="imageInput" name="image" accept="image/*" style="display: none;" onchange="this.form.submit()">
+        <input type="file" id="imageInput" name="image" accept="image/*" style="display: none;" >
         
         <!-- Bouton déclencheur -->  
-        <button type="button" class="btn-info" onclick="addImage()">Ajouter une image</button>
+        <button type="button" class="btn-info" onclick="addImage()"><i class="fa-sharp-duotone fa-solid fa-download"></i></button>
     </form>
 </div>
        

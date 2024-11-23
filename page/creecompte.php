@@ -34,6 +34,16 @@
             background-color: #fff;
             color: #343a40;
         }
+        .btn {
+            margin-top: 10px;
+            color: black;
+            border: solid 2px #efaa36;
+            border-radius: 5px;
+            padding: 10px 20px;
+        }
+        .btn:hover {
+            background-color: #efaa36;
+        }
     </style>
 </head>
 <body>
@@ -88,7 +98,7 @@
                         <label for="tel_client" class="form-label">Téléphone</label>
                         <input type="text" class="form-control" id="tel_client" name="tel_client" required>
                     </div>
-                    <button type="submit" class="btn btn-danger w-100">Créer un Compte</button>
+                    <button type="submit" class="btn  w-100">Créer un Compte</button>
                 </form>
 
                 <!-- Lien pour revenir à la connexion -->

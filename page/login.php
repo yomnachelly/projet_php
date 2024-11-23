@@ -6,6 +6,8 @@
     <title>Connexion - La Badira</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style1.css">  <!-- Fichier CSS personnalisé -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
     <style>
         /* Personnalisation de la barre de navigation */
         header.navbar {
@@ -48,8 +50,25 @@
             background-color: #fff;
             color: #343a40;
         }
+        .btn {
+            margin-top: 10px;
+            color: black;
+            border: solid 2px #efaa36;
+            border-radius: 5px;
+            padding: 10px 20px;
+        }
+        .btn:hover {
+            background-color: #efaa36;
+        }
+        .fa-eye-slash {
+            color: #EFAA36; /* Exemple : rouge quand masqué */
+        }
+        .fa-eye {
+            color: #EFAA36; /* Exemple : vert quand visible */
+        }
 
     </style>
+    
 </head>
 <body>
     <!-- Barre de navigation -->
@@ -57,7 +76,7 @@
         <div class="container">
             <a class="navbar-brand" href="home.php">HotelConnect</a>
             <div class="ml-auto">
-                <!-- Formulaire pour le bouton Log In -->
+                <!-- Formulaire pour le bouton Log In -->  
                 <form action="home.php" method="get" class="d-flex">
     <button type="submit" class="btn btn-transparent">home</button>
 </form>
@@ -83,7 +102,7 @@ if (isset($_SESSION['error'])) {
                 <!-- Formulaire de connexion -->
                 <form action="verif.php" method="POST">
                     <div class="mb-3">
-                        <label for="name" class="form-label">Nom</label>
+                        <label for="name" class="form-label">Nom & prenom</label>
                         <input type="text" class="form-control" id="name" name="name" required>
                     </div>
                     <div class="mb-3">
@@ -91,10 +110,18 @@ if (isset($_SESSION['error'])) {
                         <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label">Mot de passe</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
-                    </div>
-                    <button type="submit" class="btn btn-danger w-100">Se connecter</button>
+    <label for="password" class="form-label">Mot de passe</label>
+    <div style="position: relative;">
+    <input type="password" class="form-control" id="password" name="password" required style="padding-right: 40px;">
+    <i class="fa-solid fa-eye-slash " 
+       id="togglePassword" 
+       style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;">
+    </i>
+</div>
+</div>
+
+
+                    <button type="submit" class="btn  w-100">Se connecter</button>
                 </form>
 
                 <div class="text-center mt-3">
@@ -103,7 +130,18 @@ if (isset($_SESSION['error'])) {
             </div>
         </div>
     </main>
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function () {
+    const passwordInput = document.getElementById('password');
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
 
+    // Change l'icône (optionnel)
+    this.classList.toggle('fa-eye');
+    this.classList.toggle('fa-eye-slash');
+});
+
+    </script>
     <!-- Barre en bas -->
     <footer class="navbar navbar-light bg-dark text-white text-center py-3">
         <p>&copy; 2024 La Badira Hammamet. Tous droits réservés.</p>
