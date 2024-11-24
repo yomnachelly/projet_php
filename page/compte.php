@@ -10,6 +10,10 @@
 
 </head>
 <style>
+    h1{
+        color: #EFAA36;
+    }
+    
         .navbar .btn-transparent {
                     background-color: transparent;
                     color: #fff;
@@ -69,26 +73,29 @@ function addImage() {
 <body>
    <!-- Barre de navigation -->
    <header class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="home.php">HotelConnect</a>
-            <div class="ml-auto">
-                <!-- Formulaire pour le bouton Log In -->
-                <div class="form-container">
-    <form action="home.php" method="get" class="d-flex">
-        <button type="submit" class="btn btn-transparent">Home</button>
-    </form>
-    <form action="event.php" method="get" class="d-flex">
-        <button type="submit" class="btn btn-transparent">Events</button>
-    </form>
-    <form action="reservation.php" method="get" class="d-flex">
-        <button type="submit" class="btn btn-transparent">Reservation</button>
-    </form>
-</div>
-</div>
+    <div class="container">
+        <a class="navbar-brand" href="home.php">HotelConnect</a>
+        <div class="ml-auto">
+            <!-- Conteneur des boutons et de l'icône -->
+            <div class="form-container d-flex align-items-center">
+                <!-- Boutons -->
+                
+                <form action="event.php" method="get" class="d-flex">
+                    <button type="submit" class="btn btn-transparent">Events</button>
+                </form>
+                <form action="reservation.php" method="get" class="d-flex">
+                    <button type="submit" class="btn btn-transparent">Reservation</button>
+                </form>
 
+                <!-- Icône cliquable -->
+                <a href="login.php" style="margin-left: 10px; text-decoration: none;">
+                    <i class="fa-sharp fa-solid fa-arrow-right-from-bracket fa-flip-vertical" 
+                       style="font-size: 24px; color: white;"></i>
+                </a>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
     <main class="container mt-5">
     <div class="row">
@@ -99,7 +106,7 @@ function addImage() {
         <input type="file" id="imageInput" name="image" accept="image/*" style="display: none;" >
         
         <!-- Bouton déclencheur -->  
-        <button type="button" class="btn-info" onclick="addImage()"><i class="fa-sharp-duotone fa-solid fa-download"></i></button>
+        <button type="button" class="btn-info" onclick="addImage()"><i class="fa-sharp-duotone fa-solid fa-download"style="font-size: 24px; color:#EFAA36;"></i></button>
     </form>
 </div>
        
@@ -153,7 +160,7 @@ if (isset($_GET['cin'])) {
     // Affichage des informations du client
     if ($reservations) {
         echo "<h1 class='text-center mb-4'>Informations du Client</h1>";
-        echo "<p><strong>Nom :</strong> " . htmlspecialchars($reservations[0]['nom']) . "</p>";
+        echo "<p><strong >Nom :</strong> " . htmlspecialchars($reservations[0]['nom']) . "</p>";
         echo "<p><strong>Prénom :</strong> " . htmlspecialchars($reservations[0]['prenom']) . "</p>";
 
         // Tableau des réservations

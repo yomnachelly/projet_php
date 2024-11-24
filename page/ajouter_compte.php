@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ]);
 
         // Redirection ou message de succès
-        header("Location: compte.php"); // Remplacez "compte.php" par une page de confirmation
+        header("Location: compte.php?cin=" . urlencode($cin));
         exit;
     } catch (PDOException $e) {
         die("Erreur lors de l'ajout du compte : " . $e->getMessage());
