@@ -88,9 +88,8 @@
         </div>
        
     </header>
-
- <!--carlouse1-->
-<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+<!-- Carousel avec défilement au survol -->
+<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-ride="carousel" data-bs-interval="3000">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="img.jpg" class="d-block w-100 carousel-img" alt="...">
@@ -111,6 +110,15 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+
+<script>
+  // Récupération de l'élément du carrousel
+  const carousel = document.querySelector('#carouselExampleControlsNoTouching');
+  const carouselInstance = new bootstrap.Carousel(carousel, { interval: 30 });
+
+  // Activer le défilement au survol
+  carousel.addEventListener('mouseover', () => carouselInstance.next());
+</script>
 
     <!-- Section principale -->
     <main class="main-content">
