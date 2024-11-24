@@ -11,7 +11,7 @@
 </head>
 <style>
     h1{
-        color: #EFAA36;
+        
     }
     
         .navbar .btn-transparent {
@@ -54,7 +54,23 @@
         display: flex;
         gap: 20px; /* ajustez l'espace ici */
     }    
-        
+      
+    
+    .btn1 {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn1 i {
+    font-size: 1.2em; /* Ajustez la taille selon vos besoins */
+    color: #333; /* Couleur des icônes */
+}
+
+.btn1:hover i {
+    color: red; /* Couleur au survol */
+}
+
         
         </style>
 
@@ -141,10 +157,11 @@ if (isset($_GET['cin'])) {
 
     // Requête pour récupérer les informations client
     $query = "
-        SELECT c.nom, c.prenom, r.date_check_in, r.date_check_out
-        FROM client c
-        LEFT JOIN reservation r ON c.cin = r.id_client
-        WHERE c.cin = :cin
+            SELECT c.nom, c.prenom, r.id_res, r.date_check_in, r.date_check_out
+    FROM client c
+    LEFT JOIN reservation r ON c.cin = r.id_client
+    WHERE c.cin = :cin
+
     ";
     $stmt = $pdo->prepare($query);
     $stmt->execute([':cin' => $cin]);
@@ -164,7 +181,8 @@ if (isset($_GET['cin'])) {
         echo "<p><strong>Prénom :</strong> " . htmlspecialchars($reservations[0]['prenom']) . "</p>";
 
         // Tableau des réservations
-        echo "<h2 class='mt-4'>Réservations</h2>";
+        echo '<i class="fa-regular fa-bell fa-shake fa-2x"></i> <h2 class="mt-4 d-inline">Réservations</h2>';
+
         echo "<table class='table table-bordered table-striped'>";
         echo "<thead>
                 <tr>
@@ -174,9 +192,25 @@ if (isset($_GET['cin'])) {
               </thead>";
         echo "<tbody>";
         foreach ($reservations as $reservation) {
+          /*  echo "<tr>";
+            echo "<td>" . htmlspecialchars($reservation['date_check_in']) . "</td>";
+            echo "<td>" . htmlspecialchars($reservation['date_check_out']) . <i class="fa-solid fa-trash"></i><i class="fa-solid fa-pen"></i>"</td>";
+            echo "</tr>";*/
             echo "<tr>";
             echo "<td>" . htmlspecialchars($reservation['date_check_in']) . "</td>";
             echo "<td>" . htmlspecialchars($reservation['date_check_out']) . "</td>";
+            if (isset($reservation['id_res'])) {
+                echo "<td>
+                    <button class='btn1'onclick=\"actionSupprimer('" . htmlspecialchars($reservation['id_res']) . "')\">
+                        <i class=\"fa-solid fa-trash\"></i>
+                    </button>
+                    <button class='btn1' onclick=\"actionModifier('" . htmlspecialchars($reservation['id_res']) . "')\">
+                        <i class=\"fa-solid fa-pen\"></i>
+                    </button>
+                </td>";
+            } else {
+                echo "<td>Aucune action disponible</td>";
+            }
             echo "</tr>";
         }
         echo "</tbody>";
@@ -219,7 +253,21 @@ if (isset($_GET['cin'])) {
         </div>
     </div>
 </main>
+<script>
+    function actionSupprimer(id) {
+   
+    alert("Suppression de la réservation avec l'id : " + id);
+   
+}
 
+function actionModifier(id) {
+   
+    alert("Modification de la réservation avec l'id : " + id);
+    
+}
+
+
+</script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -83,9 +83,15 @@
                         <input type="number" class="form-control" id="age" name="age" required>
                     </div>
                     <div class="mb-3">
-                        <label for="etat_soc" class="form-label">État Social</label>
-                        <input type="text" class="form-control" id="etat_soc" name="etat_soc" required>
-                    </div>
+    <label for="etat_soc" class="form-label">État Social</label>
+    <select class="form-select" id="etat_soc" name="etat_soc" required>
+        <option value=""></option>
+        <option value="marie">Marié(e)</option>
+        <option value="celibataire">Célibataire</option>
+        <option value="autre">Autre</option>
+    </select>
+</div>
+
                     <div class="mb-3">
                         <label for="email_client" class="form-label">E-mail</label>
                         <input type="email" class="form-control" id="email_client" name="email_client" required>

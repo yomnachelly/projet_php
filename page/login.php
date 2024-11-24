@@ -65,10 +65,10 @@
             background-color: #efaa36;
         }
         .fa-eye-slash {
-            color: #EFAA36; /* Exemple : rouge quand masqué */
+            color: #EFAA36; 
         }
         .fa-eye {
-            color: #EFAA36; /* Exemple : vert quand visible */
+            color: #EFAA36; 
         }
 
     </style>
@@ -135,15 +135,17 @@ if (isset($_SESSION['error'])) {
         </div>
     </main>
     <script>
-        document.getElementById('togglePassword').addEventListener('click', function () {
+        document.getElementById('togglePassword').addEventListener('click', 
+        function () {
     const passwordInput = document.getElementById('password');
     const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
     passwordInput.setAttribute('type', type);
 
-    // Change l'icône (optionnel)
+    // Change l'icône 
     this.classList.toggle('fa-eye');
     this.classList.toggle('fa-eye-slash');
-});
+}
+);
 
     </script>
     <!-- Barre en bas -->
