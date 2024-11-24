@@ -1,0 +1,54 @@
+/* style1.css */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header.navbar {
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+}
+
+header .logo a {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #343a40;
+    text-decoration: none;
+}
+
+header .nav-right form .login-btn {
+    font-size: 1.2em;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+header .nav-right form .login-btn:hover {
+    background-color: #e3e2d1;
+}
+
+.main-content {
+    background-color: #f1f1f1;
+    padding-top: 20px;
+}
+
+.main-content h1 {
+    color: #CAC1B0;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.article-container p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.article-container h3 {
+    color: #CAC1B0;
+    font-size: 1.8em;
+    margin-top: 30px;
+}
