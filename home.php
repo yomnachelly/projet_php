@@ -114,7 +114,7 @@
 <script>
   // Récupération de l'élément du carrousel
   const carousel = document.querySelector('#carouselExampleControlsNoTouching');
-  const carouselInstance = new bootstrap.Carousel(carousel, { interval: 30 });
+  const carouselInstance = new bootstrap.Carousel(carousel, { interval: 5 });
 
   // Activer le défilement au survol
   carousel.addEventListener('mouseover', () => carouselInstance.next());

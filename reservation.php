@@ -82,6 +82,7 @@ if (!isset($_SESSION['user_id'])) {
             <div class="ml-auto">
                 <form action="login.php" method="get" class="d-flex">
                     <button type="submit" class="btn btn-transparent">Log In</button>
+                    
                 </form>
             </div>
         </div>

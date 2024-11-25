@@ -39,6 +39,7 @@ if (isset($_GET['id_chambre'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Réservation de Chambre</title>
     <style>
         h2{
@@ -91,9 +92,10 @@ if (isset($_GET['id_chambre'])) {
             <a class="navbar-brand" href="#">HotelConnect</a>
             <div class="ml-auto">
                 <!-- Formulaire pour le bouton Log In avec un bouton transparent -->
-                <form action="login.php" method="get" class="d-flex">
-                    <button type="submit" class="btn btn-transparent">Log In</button>
-                </form>
+                <a href="reservation.php" class="ms-3">
+                    <i class="fa-solid fa-share" 
+                       style="font-size: 24px; color: white;"></i>
+                </a>
             </div>
         </div>
        

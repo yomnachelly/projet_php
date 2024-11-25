@@ -65,12 +65,14 @@
         <div class="container">
             <a class="navbar-brand" href="home.php">HotelConnect</a>
             <div class="ml-auto d-flex align-items-center">
-                <form action="event.php" method="get" class="d-flex">
-                    <button type="submit" class="btn btn-transparent">Events</button>
-                </form>
-                <form action="reservation.php" method="get" class="d-flex">
-                    <button type="submit" class="btn btn-transparent">Reservation</button>
-                </form>
+            <form action="event.php" method="get" class="d-flex">
+    <button type="submit" class="btn btn-transparent">Events</button>
+</form>
+<div style="width: 10px;"></div>
+<form action="reservation.php" method="get" class="d-flex">
+    <button type="submit" class="btn btn-transparent">Reservation</button>
+</form>
+
                 <a href="login.php" class="ms-3">
                     <i class="fa-sharp fa-solid fa-arrow-right-from-bracket fa-flip-vertical" 
                        style="font-size: 24px; color: white;"></i>
@@ -181,7 +183,7 @@
 
                     // Display Events Participation
                     if ($events) {
-                        echo '<h2 class="mt-5 d-inline">Événements</h2>';
+                        echo '<i class="fa-regular fa-bell fa-shake fa-2x"></i> <h2 class="mt-4 d-inline">événement</h2>';
                         echo "<table class='table table-bordered table-striped'>";
                         echo "<thead><tr><th>Nom de l'Événement</th><th>Date</th><th>Emplacement</th></tr></thead><tbody>";
                         foreach ($events as $event) {
