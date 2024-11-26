@@ -135,7 +135,7 @@
 
                     // Query for client and reservation data
                     $query = "
-                        SELECT c.nom, c.prenom, r.id_res, r.date_check_in, r.date_check_out
+                        SELECT c.nom, c.prenom, r.id_res, r.date_check_in, r.date_check_out,r.meals
                         FROM client c
                         LEFT JOIN reservation r ON c.cin = r.id_client
                         WHERE c.cin = :cin
@@ -161,6 +161,18 @@
                     $countStmt = $pdo->prepare($countQuery);
                     $countStmt->execute([':cin' => $cin]);
                     $totalReservations = $countStmt->fetch(PDO::FETCH_ASSOC)['total_reservations'];
+                    //somme des prix
+                    $sumQuery = "
+                        SELECT SUM(c.prix) AS total_prix
+                        FROM reservation r
+                        JOIN chambre c ON r.id_chambre = c.num_ch
+                        WHERE r.id_client = :cin
+                    ";
+                    $sumStmt = $pdo->prepare($sumQuery);
+                    $sumStmt->execute([':cin' => $cin]);
+                    $totalprix = $sumStmt->fetch(PDO::FETCH_ASSOC)['total_prix'];
+
+
 
                     // Display Client Info
                     if ($reservations) {
@@ -169,11 +181,12 @@
                         echo "<p><strong>Prénom:</strong> " . htmlspecialchars($reservations[0]['prenom']) . "</p>";
                         echo '<i class="fa-regular fa-bell fa-shake fa-2x"></i> <h2 class="mt-4 d-inline">Réservations</h2>';
                         echo "<table class='table table-bordered table-striped'>";
-                        echo "<thead><tr><th>Date Check-In</th><th>Date Check-Out</th><th>Actions</th></tr></thead><tbody>";
+                        echo "<thead><tr><th>Date Check-In</th><th>Date Check-Out</th><th>repats</th><th>Actions</th></tr></thead><tbody>";
                         foreach ($reservations as $reservation) {
                             echo "<tr>";
                             echo "<td>" . htmlspecialchars($reservation['date_check_in']) . "</td>";
                             echo "<td>" . htmlspecialchars($reservation['date_check_out']) . "</td>";
+                            echo "<td>" . htmlspecialchars($reservation['meals']) . "</td>";
                             echo "<td>";
                             if (isset($reservation['id_res'])) {
                                 echo "<button class='btn1' onclick=\"actionSupprimer('" . htmlspecialchars($reservation['id_res']) . "')\">
@@ -189,6 +202,8 @@
                         }
                         echo "</tbody></table>";
                         echo "<p class='mt-3'><strong>Total Réservations:</strong> " . htmlspecialchars($totalReservations) . "</p>";
+                        
+                        echo "<p class='mt-3'><strong>Prix total:</strong> " . htmlspecialchars($totalprix) . "</p>";
                     } else {
                         echo "<h1 class='text-center mb-4'>Aucune Information Client</h1>";
                         echo "<div class='alert alert-info text-center'>Aucune reservation trouvé pour ce client.</div>";
