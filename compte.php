@@ -51,12 +51,24 @@
         function addImage() {
             document.getElementById('imageInput').click();
         }
-        function actionSupprimer(id) {
-            alert("Suppression de la réservation avec l'id : " + id);
+        function actionSupprimer(id_res) {
+        if (confirm("Voulez-vous vraiment supprimer cette réservation ?")) {
+            
+            window.location.href = "supprimer_reservation.php?id_res=" + id_res;
         }
-        function actionModifier(id) {
-            alert("Modification de la réservation avec l'id : " + id);
-        }
+    }
+
+    function actionModifier(id_res) {
+        // Redirection vers une page ou formulaire pour modifier la réservation
+        window.location.href = "modifier_reservation.php?id_res=" + id_res;
+    }
+    function actionSupprimerevent(id_event) {
+    if (confirm("Voulez-vous vraiment supprimer cet événement ?")) {
+        window.location.href = "supprimer_event.php?id_event=" + id_event;
+    }
+}
+   
+
     </script>
 </head>
 <body>
@@ -134,10 +146,11 @@
 
                     // Query for events and participation data
                     $eventsQuery = "
-                        SELECT e.nom_event, e.date_event, e.emplacement
+                        SELECT e.id_event, e.nom_event, e.date_event, e.emplacement
                         FROM events e
                         JOIN participation p ON e.id_event = p.id_event
                         WHERE p.cin = :cin
+
                     ";
                     $eventsStmt = $pdo->prepare($eventsQuery);
                     $eventsStmt->execute([':cin' => $cin]);
@@ -178,23 +191,35 @@
                         echo "<p class='mt-3'><strong>Total Réservations:</strong> " . htmlspecialchars($totalReservations) . "</p>";
                     } else {
                         echo "<h1 class='text-center mb-4'>Aucune Information Client</h1>";
-                        echo "<div class='alert alert-info text-center'>Aucune réservation trouvée pour ce client.</div>";
+                        echo "<div class='alert alert-info text-center'>Aucune reservation trouvé pour ce client.</div>";
                     }
 
                     // Display Events Participation
                     if ($events) {
                         echo '<i class="fa-regular fa-bell fa-shake fa-2x"></i> <h2 class="mt-4 d-inline">événement</h2>';
                         echo "<table class='table table-bordered table-striped'>";
-                        echo "<thead><tr><th>Nom de l'Événement</th><th>Date</th><th>Emplacement</th></tr></thead><tbody>";
+                        echo "<thead><tr><th>Nom de l'Événement</th><th>Date</th><th>Emplacement</th><th>Actions</th></tr></thead><tbody>";
                         foreach ($events as $event) {
                             echo "<tr>";
                             echo "<td>" . htmlspecialchars($event['nom_event']) . "</td>";
                             echo "<td>" . htmlspecialchars($event['date_event']) . "</td>";
                             echo "<td>" . htmlspecialchars($event['emplacement']) . "</td>";
-                            echo "</tr>";
+                            echo "<td>";
+                            if (isset($event['id_event'])) {
+                                echo "<button class='btn1' onclick=\"actionSupprimerevent('" . htmlspecialchars($event['id_event']) . "')\">
+                                <i class=\"fa-solid fa-trash\"></i>
+                              </button>";
+                        
+                                
+                            } else {
+                                echo "N/A";
+                            }
+                            echo "</td></tr>";
+                            
                         }
                         echo "</tbody></table>";
-                    } else {
+                    } 
+                    else {
                         echo "<div class='alert alert-info text-center'>Aucun événement trouvé pour ce client.</div>";
                     }
                 } else {
