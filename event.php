@@ -82,6 +82,9 @@ if (!isset($_SESSION['user_id'])) {
                 <a href="compte.php?cin=<?php echo $_SESSION['user_id'] ?>" class="ms-3">
                 <i class="fa-solid fa-circle-user" style="font-size: 24px; color: white;" title="Page"></i>
                 </a>
+                <form action="login.php" method="get" class="d-flex">
+                <button type="submit" class="btn btn-transparent">Log In</button>
+                </form>
             </div>
         </div>
     </header>
