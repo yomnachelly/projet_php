@@ -116,7 +116,7 @@ if (!isset($_SESSION['user_id'])) {
                             <h4><strong><?php echo $row['type']?> room</strong></h4>
                             <h6><strong>Numéro de Chambre:</strong> <?php echo $row['num_ch'] ?></h6>
                             <h6><strong>Étage:</strong> <?php echo $row['num_etage'] ?> | <strong>Vue:</strong> <?php echo $row['vu'] ?></h6>
-                            <h6><strong>Nombre de Lits:</strong> <?php echo $row['num_lit'] ?> | <strong>Prix:</strong> <?php echo $row['prix'] ?> €</h6>
+                            <h6><strong>Nombre de Lits:</strong> <?php echo $row['num_lit'] ?> | <strong>Prix de la nuit:</strong> <?php echo $row['prix'] ?> €</h6>
                             <h6><strong>Numéro de Suite:</strong> <?php echo $row['num_suite'] ?></h6>
                             <!-- Bouton de réservation -->
                             <a href="reservation_form.php?id_chambre=<?php echo $row['num_ch'] ?>" class="btn">Réserver</a>

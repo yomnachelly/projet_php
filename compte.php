@@ -163,7 +163,7 @@
                     $totalReservations = $countStmt->fetch(PDO::FETCH_ASSOC)['total_reservations'];
                     //somme des prix
                     $sumQuery = "
-                        SELECT SUM(c.prix) AS total_prix
+                        SELECT SUM(DATEDIFF(r.date_check_out, r.date_check_in) * c.prix*-1) AS total_prix
                         FROM reservation r
                         JOIN chambre c ON r.id_chambre = c.num_ch
                         WHERE r.id_client = :cin

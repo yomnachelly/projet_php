@@ -71,7 +71,7 @@
             <a class="navbar-brand" href="home.php">HotelConnect</a>
             <div class="ml-auto">
                 <form action="login.php" method="get" class="d-flex">
-                    <button type="submit" class="btn btn-transparent">Log In</button>
+                <button type="submit" class="btn btn-transparent">Log In</button>
                 </form>
             </div>
         </div>
