@@ -22,7 +22,7 @@ if (isset($_GET['id_res'])) {
         if ($requete_delete->execute([$id_res])) {
             echo "<script>
                     alert('Votre réservation a été supprimée avec succès 😞!');
-                    window.location.href = 'http://127.0.0.1/projet_php-2/compte.php?cin=' + $cin;
+                    window.location.href = 'compte.php?cin=' + $cin;
                   </script>";
         } else {
             echo "<script>alert('Erreur lors de la suppression de la réservation.');</script>";

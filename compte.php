@@ -184,9 +184,9 @@
                         echo "<thead><tr><th>Date Check-In</th><th>Date Check-Out</th><th>repats</th><th>Actions</th></tr></thead><tbody>";
                         foreach ($reservations as $reservation) {
                             echo "<tr>";
-                            echo "<td>" . htmlspecialchars($reservation['date_check_in']) . "</td>";
-                            echo "<td>" . htmlspecialchars($reservation['date_check_out']) . "</td>";
-                            echo "<td>" . htmlspecialchars($reservation['meals']) . "</td>";
+                            echo "<td>" .$reservation['date_check_in'] . "</td>";
+                            echo "<td>" .$reservation['date_check_out'] . "</td>";
+                            echo "<td>" .$reservation['meals'] . "</td>";
                             echo "<td>";
                             if (isset($reservation['id_res'])) {
                                 echo "<button class='btn1' onclick=\"actionSupprimer('" . htmlspecialchars($reservation['id_res']) . "')\">
@@ -201,9 +201,9 @@
                             echo "</td></tr>";
                         }
                         echo "</tbody></table>";
-                        echo "<p class='mt-3'><strong>Total Réservations:</strong> " . htmlspecialchars($totalReservations) . "</p>";
+                        echo "<p class='mt-3'><strong>Total Réservations:</strong> " . $totalReservations . "</p>";
                         
-                        echo "<p class='mt-3'><strong>Prix total:</strong> " . htmlspecialchars($totalprix) . "</p>";
+                        echo "<p class='mt-3'><strong>Prix total:</strong> " . $totalprix . "</p>";
                     } else {
                         echo "<h1 class='text-center mb-4'>Aucune Information Client</h1>";
                         echo "<div class='alert alert-info text-center'>Aucune reservation trouvé pour ce client.</div>";
@@ -216,12 +216,12 @@
                         echo "<thead><tr><th>Nom de l'Événement</th><th>Date</th><th>Emplacement</th><th>Actions</th></tr></thead><tbody>";
                         foreach ($events as $event) {
                             echo "<tr>";
-                            echo "<td>" . htmlspecialchars($event['nom_event']) . "</td>";
-                            echo "<td>" . htmlspecialchars($event['date_event']) . "</td>";
-                            echo "<td>" . htmlspecialchars($event['emplacement']) . "</td>";
+                            echo "<td>" . $event['nom_event'] . "</td>";
+                            echo "<td>" . $event['date_event'] . "</td>";
+                            echo "<td>" . $event['emplacement'] . "</td>";
                             echo "<td>";
                             if (isset($event['id_event'])) {
-                                echo "<button class='btn1' onclick=\"actionSupprimerevent('" . htmlspecialchars($event['id_event']) . "')\">
+                                echo "<button class='btn1' onclick=\"actionSupprimerevent('" . $event['id_event'] . "')\">
                                 <i class=\"fa-solid fa-trash\"></i>
                               </button>";
                         

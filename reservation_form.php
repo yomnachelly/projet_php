@@ -104,24 +104,24 @@ if (isset($_GET['id_chambre'])) {
     <!-- Reservation Form Section -->
     <div class="container mt-5">
         <div class="form-container">
-            <h2 class="text-center mb-4">Réservation de la Chambre <?php echo htmlspecialchars($room['num_ch']); ?></h2>
+            <h2 class="text-center mb-4">Réservation de la Chambre <?php echo $room['num_ch']; ?></h2>
 
             <form action="process_reservation.php" method="post">
-                <input type="hidden" name="id_chambre" value="<?php echo htmlspecialchars($room['num_ch']); ?>">
+                <input type="hidden" name="id_chambre" value="<?php echo $room['num_ch']; ?>">
 
                 <div class="mb-3">
                     <label for="date_check_in" class="form-label">Date d'arrivée</label>
-                    <input type="date" id="date_check_in" name="date_check_in" class="form-control" required>
+                    <input type="date" id="date_check_in" name="date_check_in" class="form-control " min="<?php echo date('Y-m-d'); ?>" onchange="updateMinCheckOutDate()" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="date_check_out" class="form-label">Date de départ</label>
-                    <input type="date" id="date_check_out" name="date_check_out" class="form-control" required>
+                    <input type="date" id="date_check_out" name="date_check_out" class="form-control" min="<?php echo date('Y-m-d'); ?>" required>
                 </div>
 
                 <div class="mb-3">
     <label for="id_client" class="form-label">ID du Client</label>
-    <input type="number" id="id_client" name="id_client" class="form-control" value="<?php echo htmlspecialchars($user_id); ?>" readonly>
+    <input type="number" id="id_client" name="id_client" class="form-control" value="<?php echo $user_id; ?>" readonly>
 </div>
 
 
@@ -150,6 +150,26 @@ if (isset($_GET['id_chambre'])) {
     <footer class="text-center">
         <p>&copy; 2024 HotelConnect. Tous droits réservés.</p>
     </footer>
+
+    <script>
+    // JavaScript to ensure check-out date is after check-in date
+    function updateMinCheckOutDate() {
+        const checkInDate = document.getElementById('date_check_in').value;
+        const checkOutDate = document.getElementById('date_check_out');
+        checkOutDate.min = checkInDate; // Set the min date for check-out to check-in date
+    }
+
+    // Additional validation on form submission
+    document.querySelector('form').addEventListener('submit', function(event) {
+        const checkInDate = new Date(document.getElementById('date_check_in').value);
+        const checkOutDate = new Date(document.getElementById('date_check_out').value);
+
+        if (checkOutDate <= checkInDate) {
+            event.preventDefault(); // Prevent form submission
+            alert('La date de départ doit être après la date d\'arrivée.');
+        }
+    });
+</script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
