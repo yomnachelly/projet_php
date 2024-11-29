@@ -6,6 +6,7 @@
     <title>La Badira - Hammamet</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style1.css">  <!-- Fichier CSS personnalisé -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* Personnalisation de la barre de navigation */
         header.navbar {
@@ -78,7 +79,7 @@
     <!-- Barre de navigation -->
     <header class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="#">HotelConnect</a>
+            <a class="navbar-brand" href="#">  <i class="fas fa-university me-2"></i>HotelConnect</a>
             <div class="ml-auto">
                 <!-- Formulaire pour le bouton Log In avec un bouton transparent -->
                 <form action="login.php" method="get" class="d-flex">
