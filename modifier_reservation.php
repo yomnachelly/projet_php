@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         echo "<script>
         alert('Votre réservation a été modifiée avec succès !');
-        window.location.href = 'http://127.0.0.1/projet_php-2/compte.php?cin=' + '" . htmlspecialchars($cin) . "';
+        window.location.href = 'http://127.0.0.1/projet_php/compte.php?cin=' + '" . htmlspecialchars($cin) . "';
         </script>";
     } else {
         echo "Tous les champs doivent être remplis.";

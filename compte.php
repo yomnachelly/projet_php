@@ -163,7 +163,7 @@
                     $totalReservations = $countStmt->fetch(PDO::FETCH_ASSOC)['total_reservations'];
                     //somme des prix
                     $sumQuery = "
-                        SELECT SUM(DATEDIFF(r.date_check_out, r.date_check_in) * c.prix*-1) AS total_prix
+                        SELECT SUM(DATEDIFF(r.date_check_out, r.date_check_in) * c.prix) AS total_prix
                         FROM reservation r
                         JOIN chambre c ON r.id_chambre = c.num_ch
                         WHERE r.id_client = :cin
@@ -181,7 +181,8 @@
                         echo "<p><strong>Prénom:</strong> " . htmlspecialchars($reservations[0]['prenom']) . "</p>";
                         echo '<i class="fa-regular fa-bell fa-shake fa-2x"></i> <h2 class="mt-4 d-inline">Réservations</h2>';
                         echo "<table class='table table-bordered table-striped'>";
-                        echo "<thead><tr><th>Date Check-In</th><th>Date Check-Out</th><th>repats</th><th>Actions</th></tr></thead><tbody>";
+                        echo '<thead><tr><th><i class="fas fa-calendar-alt"></i>Date Check-In</th><th><i class="fas fa-calendar-alt"></i>Date Check-Out</th><th><i class="fa-solid fa-utensils"></i>repats</th><th><i class="fas fa-cogs"></i>Actions</th></tr></thead><tbody>';
+
                         foreach ($reservations as $reservation) {
                             echo "<tr>";
                             echo "<td>" .$reservation['date_check_in'] . "</td>";
