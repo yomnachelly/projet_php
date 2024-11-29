@@ -185,7 +185,8 @@
 
                         foreach ($reservations as $reservation) {
                             echo "<tr>";
-                            echo "<td>" .$reservation['date_check_in'] . "</td>";
+                            echo "<td><i class=\"fa-solid fa-check\"></i>" . $reservation['date_check_in'] . "</td>";
+
                             echo "<td>" .$reservation['date_check_out'] . "</td>";
                             echo "<td>" .$reservation['meals'] . "</td>";
                             echo "<td>";
@@ -214,10 +215,12 @@
                     if ($events) {
                         echo '<i class="fa-regular fa-bell fa-shake fa-2x"></i> <h2 class="mt-4 d-inline">événement</h2>';
                         echo "<table class='table table-bordered table-striped'>";
-                        echo "<thead><tr><th>Nom de l'Événement</th><th>Date</th><th>Emplacement</th><th>Actions</th></tr></thead><tbody>";
+                        echo '<thead><tr><th><i class="fa-solid fa-music"></i> l\'Événement</th><th><i class="fas fa-calendar-alt"></i>Date</th><th><i class="fa-solid fa-location-dot"></i>Emplacement</th><th><i class="fas fa-cogs"></i>Actions</th></tr></thead><tbody>';
+
                         foreach ($events as $event) {
                             echo "<tr>";
-                            echo "<td>" . $event['nom_event'] . "</td>";
+                            echo '<td><i class="fa-solid fa-check"></i>' . $event['nom_event'] . '</td>';
+
                             echo "<td>" . $event['date_event'] . "</td>";
                             echo "<td>" . $event['emplacement'] . "</td>";
                             echo "<td>";
