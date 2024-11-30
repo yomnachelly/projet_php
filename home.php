@@ -79,7 +79,7 @@
     <!-- Barre de navigation -->
     <header class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="#">  <i class="fas fa-university me-2"></i>HotelConnect</a>
+            <a class="navbar-brand" href="#">  <i class="fas fa-university me-2"></i>  <i class="fa-solid fa-h fa-flip"></i>otel<i class="fa-solid fa-c fa-bounce"></i>onnect</a>
             <div class="ml-auto">
                 <!-- Formulaire pour le bouton Log In avec un bouton transparent -->
                 <form action="login.php" method="get" class="d-flex">
@@ -128,13 +128,13 @@
         </div>-->
         <div class="container my-5">
             <div class="article-container">
-                <h1 class="text-center">Bienvenue à La Badira</h1>
+                <h1 class="text-center"><i class="fa-solid fa-b fa-bounce"></i>ienvenue à La <i class="fa-solid fa-b fa-bounce"></i>adira</h1>
                 <p>
                     Bienvenue à La Badira : Un Voyage vers l’Excellence<br>
                     Bienvenue sur le site de La Badira "HotelConnect", un lieu où l’élégance intemporelle rencontre un confort exceptionnel.<br>
                     Nous sommes ravis de vous accueillir dans notre oasis nichée au cœur de Hammamet, face à l’immensité de la Méditerranée.
                 </p>
-                <h3>Un Séjour Inoubliable Vous Attend</h3>
+                <h3><i class="fa-solid fa-bullhorn fa-beat"></i>  Un Séjour Inoubliable Vous Attend</h3>
                 <p>
                     Que vous soyez en voyage d’affaires, en quête de détente ou à la recherche d’un cadre enchanteur pour vos événements, La Badira vous ouvre ses portes. Découvrez :
                 </p>
@@ -183,11 +183,11 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-                <h3>Une Expérience Unique à Chaque Instant</h3>
+                <h3><i class="fa-solid fa-bullhorn fa-beat"></i> Une Expérience Unique à Chaque Instant</h3>
                 <p>
                     Plongez dans l’atmosphère sereine de notre hôtel, où chaque détail est pensé pour sublimer votre séjour. Promenez-vous dans notre galerie, explorez nos offres exclusives et laissez-vous inspirer par les témoignages de nos hôtes.
                 </p>
-                <h3>L’Alliance du Luxe et de la Culture Tunisienne</h3>
+                <h3><i class="fa-solid fa-bullhorn fa-beat"></i> L’Alliance du Luxe et de la Culture Tunisienne</h3>
                 <p>
                     La Badira est bien plus qu’un hôtel, c’est une expérience. À travers une architecture moderne sublimée par des touches de tradition tunisienne, chaque coin de notre établissement raconte une histoire, celle du raffinement et de l’accueil chaleureux.
                 </p>
@@ -203,7 +203,7 @@
        
         <!-- Section d'images supplémentaires -->
         <div class="container my-5">
-    <h2 class="text-center mb-4">Nos Services en Images</h2>
+    <h2 class="text-center mb-4"><i class="fa-solid fa-backward fa-fade"></i> Nos Services en Images <i class="fa-solid fa-backward fa-fade"></i></h2>
     <div class="row">
         <div class="col-md-4">
             <div class="image-card">
@@ -240,10 +240,10 @@
       <div class="carousel-caption d-none d-md-block">
         <h5>La Badira Hotel Information:</h5>
         <p>
-Address:
+        <i class="fa-solid fa-location-dot fa-fade"></i> Address:
 <br>
--BP437 / HAMMAMET<br>
--8050 / TUNISIE.<br>Telephone: +(216)70018180<br>gmail:contact@labadira.com<br>Travellife: Gold Certified for Accommodation Sustainability</p>
+-BP437 / HAMMAMET <br>
+-8050 / TUNISIE.<br><i class="fa-solid fa-phone-volume fa-shake"></i> Telephone: +(216)70018180 <br><i class="fa-solid fa-envelope fa-spin"></i> gmail:contact@labadira.com <br>Travellife: Gold Certified for Accommodation Sustainability</p>
       </div>
     </div>
   

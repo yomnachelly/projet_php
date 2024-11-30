@@ -77,7 +77,7 @@ if (!isset($_SESSION['user_id'])) {
     <!-- Barre de navigation -->
     <header class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="home.php">HotelConnect</a>
+        <a class="navbar-brand" href="#">  <i class="fas fa-university me-2"></i>  <i class="fa-solid fa-h fa-flip"></i>otel<i class="fa-solid fa-c fa-bounce"></i>onnect</a>
             <div class="ml-auto">
                 <a href="compte.php?cin=<?php echo $_SESSION['user_id'] ?>" class="ms-3">
                 <i class="fa-solid fa-circle-user" style="font-size: 24px; color: white;" title="Page"></i>

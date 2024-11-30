@@ -78,7 +78,7 @@
     <!-- Barre de navigation -->
     <header class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="home.php">HotelConnect</a>
+        <a class="navbar-brand" href="#">  <i class="fas fa-university me-2"></i>  <i class="fa-solid fa-h fa-flip"></i>otel<i class="fa-solid fa-c fa-bounce"></i>onnect</a>
             <div class="ml-auto">
                 <!-- Formulaire pour le bouton Log In -->  
                 <form action="home.php" method="get" class="d-flex">
