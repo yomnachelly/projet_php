@@ -181,7 +181,7 @@
                         echo "<p><strong>Prénom:</strong> " . htmlspecialchars($reservations[0]['prenom']) . "</p>";
                         echo '<i class="fa-regular fa-bell fa-shake fa-2x"></i> <h2 class="mt-4 d-inline">Réservations</h2>';
                         echo "<table class='table table-bordered table-striped'>";
-                        echo '<thead><tr><th><i class="fas fa-calendar-alt"></i>Date Check-In</th><th><i class="fas fa-calendar-alt"></i>Date Check-Out</th><th><i class="fa-solid fa-utensils"></i>repats</th><th><i class="fas fa-cogs"></i>Actions</th></tr></thead><tbody>';
+                        echo '<thead><tr><th><i class="fas fa-calendar-alt"></i>  Date Check-In</th><th><i class="fas fa-calendar-alt"></i>  Date Check-Out</th><th><i class="fa-solid fa-utensils"></i>  repats</th><th><i class="fas fa-cogs"></i>  Actions</th></tr></thead><tbody>';
 
                         foreach ($reservations as $reservation) {
                             echo "<tr>";
@@ -213,9 +213,9 @@
 
                     // Display Events Participation
                     if ($events) {
-                        echo '<i class="fa-regular fa-bell fa-shake fa-2x"></i> <h2 class="mt-4 d-inline">événement</h2>';
+                        echo '<i class="fa-regular fa-bell fa-shake fa-2x"></i> <h2 class="mt-4 d-inline"> événement</h2>';
                         echo "<table class='table table-bordered table-striped'>";
-                        echo '<thead><tr><th><i class="fa-solid fa-music"></i> l\'Événement</th><th><i class="fas fa-calendar-alt"></i>Date</th><th><i class="fa-solid fa-location-dot"></i>Emplacement</th><th><i class="fas fa-cogs"></i>Actions</th></tr></thead><tbody>';
+                        echo '<thead><tr><th><i class="fa-solid fa-music"></i>  l\'Événement</th><th><i class="fas fa-calendar-alt"></i>  Date</th><th><i class="fa-solid fa-location-dot"></i>  Emplacement</th><th><i class="fas fa-cogs"></i>  Actions</th></tr></thead><tbody>';
 
                         foreach ($events as $event) {
                             echo "<tr>";

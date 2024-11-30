@@ -207,7 +207,7 @@
     <div class="row">
         <div class="col-md-4">
             <div class="image-card">
-                <img src="Chambre.jpg" alt="Chambres élégantes" class="img-fluid zoomable">
+                <img src="im.avif" alt="Chambres élégantes" class="img-fluid zoomable">
                 <h5 class="text-center">Chambres Élégantes</h5>
             </div>
         </div>
